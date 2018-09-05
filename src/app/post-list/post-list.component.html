@@ -1,0 +1,11 @@
+
+<li [ngClass]="{'list-group-item': true,
+'list-group-item-success': postLoveIts > 0,
+'list-group-item-danger': postLoveIts < 0
+}">
+  <h4 [ngStyle]="{color: getColor()}">Appareil: {{ postTitle }}</h4>
+  <p>{{ postCreatedAt | date:'MM/dd/yyyy' | lowercase }}</p>
+  <p>{{ postContent }}</p>
+  <p class="right">Nombre de like: {{ getPostLoveIts() }}</p>
+<i [ngClass]="{'fa': true, 'fa-thumbs-up thumbs-up-blue': postLoveIts === 1, 'fa-thumbs-o-up': postLoveIts !== 1}" (click)="onLike()"></i><i [ngClass]="{'fa': true, 'fa-thumbs-down thumbs-down-red': postLoveIts === -1, 'fa-thumbs-o-down': postLoveIts !== -1}" (click)="onDislike()"></i>
+</li>
